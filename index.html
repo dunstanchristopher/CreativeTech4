@@ -15,20 +15,17 @@
 
 <body>
     <h1>July 18, 2018 was the &nbsp;<button id="startTheProcess">START!</button>&nbsp;of something</h1>
-    <section id="cocktailSection"></section>
     <section id="pictureSection"></section>
     <section id="weatherSection"></section>
 
     <script>
         // references
         let triggerButton = document.getElementById("startTheProcess")
-        let randomCocktailURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-        let cocktailSection = document.getElementById("cocktailSection")
         let pictureSection = document.getElementById("pictureSection")
         let weatherSection = document.getElementById("weatherSection")
         let dateSection = document.getElementById("dateSection")
 
-        let fetchDate = randomDate(new Date(1995, 6, 20), new Date())
+        let fetchDate = Date(2018, 7, 3)
 
 
         let nasaAPoDBaseURL = "https://api.nasa.gov/planetary/apod?"
@@ -55,18 +52,6 @@
         }
         
         // fetchers
-        function fetchRandomCocktail() {
-            fetch(randomCocktailURL)
-                .then((response) => {
-                    return response.json()
-                })
-                .then((data) => {
-                    cocktailDataHandler(data)
-                })
-                .catch((serverError) => {
-                    console.error(serverError)
-                })
-        }
 
         function fetchNASApicture() {
             // https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&2018-11-12
@@ -99,26 +84,7 @@
         }
 
         // handlers
-        function cocktailDataHandler(cocktailData) {
-            while (cocktailSection.firstChild) {
-                cocktailSection.removeChild(cocktailSection.firstChild)
-            }
-
-            let intro = document.createElement('h2')
-            intro.innerText = "On " + fetchDate + " we had"
-            cocktailSection.appendChild(intro)
-
-            let name = cocktailData.drinks[0].strDrink
-            let thumb = cocktailData.drinks[0].strDrinkThumb
-
-            let nameContainer = document.createElement('h3')
-            nameContainer.innerText = name
-            cocktailSection.appendChild(nameContainer)
-
-            let thumbContainer = document.createElement('img')
-            thumbContainer.src = thumb
-            thumbContainer.alt = name
-            cocktailSection.appendChild(thumbContainer)
+        function 
 
             fetchNASApicture()
             fetchWeatherData()
