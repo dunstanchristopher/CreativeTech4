@@ -142,15 +142,6 @@
             return [year, month, day].join('-');
         }
 
-        function generateNewDate(){
-            fetchDate = randomDate(new Date(1995, 6, 20), new Date())
-            //for the nasa picture
-            nasaAPIdate = "&date=" + fetchDate
-            //for the weather
-            startDT = "&startDateTime=" + fetchDate + "T00:00:00"
-            endDT = "&endDateTime=" + fetchDate + "T00:00:00"
-        }
-
         // events
         triggerButton.addEventListener('click', triggerHandler)
     </script>
