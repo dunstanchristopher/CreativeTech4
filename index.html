@@ -15,56 +15,30 @@
 
 <body>
     <h1>July 3, 2018 was the &nbsp;<button id="startTheProcess">START!</button>&nbsp; of something</h1>
-    <section id="pictureSection"></section>
+   
     <section id="weatherSection"></section>
 
     <script>
         // references
         let triggerButton = document.getElementById("startTheProcess")
-        let pictureSection = document.getElementById("pictureSection")
         let weatherSection = document.getElementById("weatherSection")
-        let dateSection = document.getElementById("dateSection")
 
-        let Date = new Date(2018, 7, 3)
-
-
-        let nasaAPoDBaseURL = "https://api.nasa.gov/planetary/apod?"
-        let nasaAPIkey = "&api_key=DEMO_KEY"
-        let nasaAPIdate = "&date=" + Date
         
-
-        let weatherBaseURL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/"
-        let contentType = "history?"
-        let aggHrs = "&aggregateHours=24"
-        let startDT = "&startDateTime=" + Date + "T00:00:00"
-        let endDT = "&endDateTime=" + Date + "T00:00:00"
-        let unit = "&unitGroup=uk"
+        let weatherBaseURL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239%20N%20Westmoreland%20Avenue%2C%20Los%20Angeles%2C%20CA%2090029?unitGroup=metric&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json"
+        let address = "address"
+        let dateTime = "datetime"
+        let tempMax = "tempmax"
+        let conditions = "&endDateTime="
+        let moonPhase = "moonphase"
         let format = "&contentType=json"
-        let weatherLocation = "&location=LosAngeles,CA,US"
         let apiKey = "&key=QSJBBL93JZBEQJKW9RSTJG2KF"
 
         // functions
         
         // fetchers
 
-        function fetchNASApicture() {
-            // https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&2018-11-12
-            let queryURL = nasaAPoDBaseURL + nasaAPIkey + nasaAPIdate
-
-            fetch(queryURL)
-                .then((response) => {
-                    return response.json()
-                })
-                .then((data) => {
-                    nasaPicureDataHandler(data)
-                })
-                .catch((serverError) => {
-                    console.error(serverError)
-                })
-        }
-
         function fetchWeatherData(){
-            let queryURL = weatherBaseURL + contentType + aggHrs + startDT + endDT + unit + format + weatherLocation + apiKey
+            let queryURL = weatherBaseURL + address + dateTime + tempMax + conditions + moonPhase + format + apiKey
             fetch(queryURL)
                 .then((response) => {
                     return response.json()
@@ -79,47 +53,13 @@
 
         // handlers
        
-        function nasaPicureDataHandler(pictureData){
-            while (pictureSection.firstChild) {
-                pictureSection.removeChild(pictureSection.firstChild)
-            }
-
-            let name = pictureData.title
-            let image = pictureData.url
-
-
-            let intro = document.createElement('h2')
-            intro.innerText = "watching "
-            pictureSection.appendChild(intro)
-            
-            let nameContainer = document.createElement('h3')
-            nameContainer.innerText = name
-            pictureSection.appendChild(nameContainer)
-
-            let thumbContainer = document.createElement('img')
-            thumbContainer.src = image
-            thumbContainer.alt = name
-            pictureSection.appendChild(thumbContainer)
-        }
 
         function weatherDataHandler(weatherData){
             while (weatherSection.firstChild) {
                 weatherSection.removeChild(weatherSection.firstChild)
-            }
-
-            let weatherType = weatherData.locations['LosAngeles,CA,US'].values[0].weathertype
-            let conditions = weatherData.locations['LosAngeles,CA,US'].values[0].conditions
-
-            let connection = ""
-            if(weatherType && conditions){
-                connection = " and "
-            }
-            console.info(weatherType)
-            console.info(conditions)
             
-            let nameContainer = document.createElement('h3')
-            nameContainer.innerText = "while the weather was " + weatherType + connection + conditions
-            weatherSection.appendChild(nameContainer)
+                let nameContainer = document.createElement('h3')
+            nameContainer.innerText = "while the weather was " + conditions + tempMax + "and the moon was at" + moonPhase
 
         }
 
