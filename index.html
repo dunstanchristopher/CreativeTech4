@@ -57,7 +57,7 @@
         function weatherDataHandler(weatherData){
             while (weatherSection.firstChild) {
                 weatherSection.removeChild(weatherSection.firstChild)
-            
+            }
                 let nameContainer = document.createElement('h3')
             nameContainer.innerText = "while the weather was " + conditions + tempMax + "and the moon was at" + moonPhase
 
