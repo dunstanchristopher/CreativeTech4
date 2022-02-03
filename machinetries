@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On July 3, 2018, 11 pm</title>
+    <style>
+        img {
+            max-width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>July 3, 2018 was the &nbsp;<button id="startTheProcess">START!</button>&nbsp; of something</h1>
+   
+    <section id="weatherSection"></section>
+
+    <script>
+        // references
+        let triggerButton = document.getElementById("startTheProcess")
+        let weatherSection = document.getElementById("weatherSection")
+
+        
+        let weatherBaseURL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239%20N%20Westmoreland%20Avenue%2C%20Los%20Angeles%2C%20CA%2090029?unitGroup=metric&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json"
+        let address = "address"
+        let dateTime = "datetime"
+        let tempMax = "tempmax"
+        let conditions = "&endDateTime="
+        let moonPhase = "moonphase"
+        let format = "&contentType=json"
+
+        // functions
+        function triggerHandler() {
+            fetchWeatherData()
+        }
+        // fetchers
+
+        function fetchWeatherData(){
+            let queryURL = weatherBaseURL + address + dateTime + tempMax + conditions + moonPhase + format
+            fetch(queryURL)
+                .then((response) => {
+                    return response.json()
+                })
+                .then((data) => {
+                    weatherDataHandler(data)
+                })
+                .catch((serverError) => {
+                    console.error(serverError)
+                })
+        }
+
+        // handlers
+       
+
+        function weatherDataHandler(weatherData){
+            while (weatherSection.firstChild) {
+                weatherSection.removeChild(weatherSection.firstChild)
+            }
+                let nameContainer = document.createElement('h3')
+            nameContainer.innerText = "while the weather was " + conditions + tempMax + "and the moon was at" + moonPhase
+
+        }
+
+        //helper functions
+       
+
+
+        // events
+    
+    </script>
+</body>
+
+</html>

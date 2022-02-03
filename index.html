@@ -17,60 +17,38 @@
     <h1>July 3, 2018 was the &nbsp;<button id="startTheProcess">START!</button>&nbsp; of something</h1>
    
     <section id="weatherSection"></section>
-
-    <script>
-        // references
-        let triggerButton = document.getElementById("startTheProcess")
-        let weatherSection = document.getElementById("weatherSection")
-
-        
-        let weatherBaseURL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239%20N%20Westmoreland%20Avenue%2C%20Los%20Angeles%2C%20CA%2090029?unitGroup=metric&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json"
-        let address = "address"
-        let dateTime = "datetime"
-        let tempMax = "tempmax"
-        let conditions = "&endDateTime="
-        let moonPhase = "moonphase"
-        let format = "&contentType=json"
-
-        // functions
-        function triggerHandler() {
-            fetchWeatherData()
-        }
-        // fetchers
-
-        function fetchWeatherData(){
-            let queryURL = weatherBaseURL + address + dateTime + tempMax + conditions + moonPhase + format
-            fetch(queryURL)
-                .then((response) => {
-                    return response.json()
-                })
-                .then((data) => {
-                    weatherDataHandler(data)
-                })
-                .catch((serverError) => {
-                    console.error(serverError)
-                })
-        }
-
-        // handlers
-       
-
-        function weatherDataHandler(weatherData){
-            while (weatherSection.firstChild) {
-                weatherSection.removeChild(weatherSection.firstChild)
-            }
-                let nameContainer = document.createElement('h3')
-            nameContainer.innerText = "while the weather was " + conditions + tempMax + "and the moon was at" + moonPhase
-
-        }
-
-        //helper functions
-       
-
-
-        // events
     
-    </script>
+<script>
+
+    fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239%20N%20Westmoreland%20Ave%2C%20Los%20Angeles%2C%20CA%2090029/2018-07-03/2018-07-03?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
+        method: 'GET', 
+        headers: {
+       
+        },
+                 
+      }).then(response => {
+        if (!response.ok) {
+          throw response; //check the http response code and if isn't ok then throw the response as an error
+        }
+                  
+        return response.json(); //parse the result as JSON
+      
+      }).then(response => {
+        //response now contains parsed JSON ready for use
+        processWeatherData(response);
+      
+      }).catch((errorResponse) => {
+        if (errorResponse.text) { //additional error information
+          errorResponse.text().then( errorMessage => {
+            //errorMessage now returns the response body which includes the full error message
+          })
+        } else {
+          //no additional error information 
+        } 
+      });
+    
+</script>
+
 </body>
 
 </html>
