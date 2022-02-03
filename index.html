@@ -14,12 +14,12 @@
 </head>
 
 <body>
-    <h1>July 3, 2018 was the &nbsp;<button id="startTheProcess">START!</button>&nbsp; of something</h1>
+ 
    
     
 <script>
 
-    fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
+    fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/New%20York%20City%2CNY?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
         method: 'GET', 
         headers: {
        
@@ -45,6 +45,16 @@
           //no additional error information 
         } 
       });
+
+      function processWeatherData(response) {
+  
+  var location=response.resolvedAddress;
+  var days=response.days;
+  console.log("Location: "+location);
+  for (var i=0;i<days.length;i++) {
+    console.log(days[i].datetime+": tempmax="+days[i].tempmax+", tempmin="+days[i].tempmin);
+  }
+}
     
 </script>
 
