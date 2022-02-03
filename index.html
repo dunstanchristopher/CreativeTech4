@@ -31,14 +31,13 @@
         let conditions = "&endDateTime="
         let moonPhase = "moonphase"
         let format = "&contentType=json"
-        let apiKey = "&key=QSJBBL93JZBEQJKW9RSTJG2KF"
 
         // functions
         
         // fetchers
 
         function fetchWeatherData(){
-            let queryURL = weatherBaseURL + address + dateTime + tempMax + conditions + moonPhase + format + apiKey
+            let queryURL = weatherBaseURL + address + dateTime + tempMax + conditions + moonPhase + format
             fetch(queryURL)
                 .then((response) => {
                     return response.json()
