@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <h1>July 18, 2018 was the &nbsp;<button id="startTheProcess">START!</button>&nbsp;of something</h1>
+    <h1>July 3, 2018 was the &nbsp;<button id="startTheProcess">START!</button>&nbsp; of something</h1>
     <section id="pictureSection"></section>
     <section id="weatherSection"></section>
 
@@ -25,23 +25,23 @@
         let weatherSection = document.getElementById("weatherSection")
         let dateSection = document.getElementById("dateSection")
 
-        let fetchDate = Date(2018, 7, 3)
+        let Date = new Date(2018, 7, 3)
 
 
         let nasaAPoDBaseURL = "https://api.nasa.gov/planetary/apod?"
         let nasaAPIkey = "&api_key=DEMO_KEY"
-        let nasaAPIdate = "&date=" + fetchDate
+        let nasaAPIdate = "&date=" + Date
         
 
         let weatherBaseURL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/"
         let contentType = "history?"
         let aggHrs = "&aggregateHours=24"
-        let startDT = "&startDateTime=" + fetchDate + "T00:00:00"
-        let endDT = "&endDateTime=" + fetchDate + "T00:00:00"
+        let startDT = "&startDateTime=" + Date + "T00:00:00"
+        let endDT = "&endDateTime=" + Date + "T00:00:00"
         let unit = "&unitGroup=uk"
         let format = "&contentType=json"
         let weatherLocation = "&location=LosAngeles,CA,US"
-        let apiKey = "&key=F5S85MYAKSL47W6LW5J6FBAKL"
+        let apiKey = "&key=QSJBBL93JZBEQJKW9RSTJG2KF"
 
         // functions
         
