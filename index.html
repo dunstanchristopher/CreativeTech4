@@ -20,11 +20,11 @@
    
     
     <script>
-        let triggerButton = document.getElementById("startTheProcess")
-        let weatherSection = document.getElementById("weatherSection")
-        function triggerHandler() {
-           weatherDataHandler()
-        }
+        //let triggerButton = document.getElementById("startTheProcess")
+        //let weatherSection = document.getElementById("weatherSection")
+        //function triggerHandler() {
+        //   weatherDataHandler()
+       // }
 
         fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239%20N%20Westmoreland%20Ave%2C%20Los%20Angeles%2C%20CA%2090029/2018-07-03/2018-07-03?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
         method: 'GET', 
@@ -68,22 +68,26 @@
         console.log("Moonphase: "+moonPhase);
       }
      
-    function weatherDataHandler(weatherData){
-            while (weatherSection.firstChild) {
-                weatherSection.removeChild(weatherSection.firstChild)
-            }
+      function displayWeather (data) {
+          const location = data.resolvedAddress;
+          const loactionDiv = document.getElementById("location");
+      }
+    // function weatherDataHandler(weatherData){
+    //         while (weatherSection.firstChild) {
+    //             weatherSection.removeChild(weatherSection.firstChild)
+    //         }
 
-        let connection = ""
-            if(temperature && weatherConditions){
-                connection = " and "
-            }
-            console.info(temperature)
-            console.info(weatherConditions)
+    //     let connection = ""
+    //         if(temperature && weatherConditions){
+    //             connection = " and "
+    //         }
+    //         console.info(temperature)
+    //         console.info(weatherConditions)
             
-            let nameContainer = document.createElement('h3')
-            nameContainer.innerText = "while the weather was " + temperature + connection + weatherConditions
-            weatherSection.appendChild(nameContainer)
-        }
+    //         let nameContainer = document.createElement('h3')
+    //         nameContainer.innerText = "while the weather was " + temperature + connection + weatherConditions
+    //         weatherSection.appendChild(nameContainer)
+    //     }
 
 
     
