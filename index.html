@@ -63,9 +63,12 @@
         console.log("Conditions: "+weatherConditions);
         console.log("Moonphase: "+moonPhase);
       }
+      function triggerHandler() {
+            processWeatherData()
+        }
       function weatherDataHandler(weatherData){
         let nameContainer = document.createElement('h3')
-        nameContainer.innerText = "The temperature was " + temperature "and the skies were " + weatherConditions
+        nameContainer.innerText = "The temperature was " + temperature
       }
 
 
