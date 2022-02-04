@@ -12,27 +12,28 @@
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://api.telegram.org/" + 5122825791:AAEvwhROeKRnqx4Pn6trYVamEDI-kaLA0vc + "/sendMessage",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json",
+          "cache-control": "no-cache",
+        "data": JSON.stringify({
+          "chat_id": 762914393,
+          "text": Good afternoon
+        })
+      }
+      
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+      });
 </head>
 
 <body>
  
-    var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://api.telegram.org/" + 5122825791:AAEvwhROeKRnqx4Pn6trYVamEDI-kaLA0vc + "/sendMessage",
-  "method": "POST",
-  "headers": {
-    "Content-Type": "application/json",
-    "cache-control": "no-cache",
-  "data": JSON.stringify({
-    "chat_id": 762914393,
-    "text": Good afternoon
-  })
-}
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
+  
 
 <script>
 
