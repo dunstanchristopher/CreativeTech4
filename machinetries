@@ -15,8 +15,7 @@
 
 <body>
     <h1>July 3, 2018 was the &nbsp;<button id="startTheProcess">START!</button>&nbsp; of something</h1>
-   
-    <section id="weatherSection"></section>
+    <section id="weatherSection"></section> -->
 
     <script>
         // references
