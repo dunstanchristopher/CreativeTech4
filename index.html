@@ -49,16 +49,15 @@
       function processWeatherData(response) {
   
   var location=response.resolvedAddress;
-  var temp=response.temp;
-  var conditions=response.conditions;
-  var moonphase=response.moonphase;
+  var temperature=response.temp;
+  var weatherConditions=response.conditions;
+  var moonPhase=response.moonphase;
 
   console.log("Location: "+location);
-  console.log("Temperature: "+temp);
-  console.log("Conditions: "+conditions);
-  console.log("Moonphase: "+moonphase);
-    
-  }
+  console.log("Temperature: "+temperature);
+  console.log("Conditions: "+weatherConditions);
+  console.log("Moonphase: "+moonPhase);
+}
 
     
 </script>
