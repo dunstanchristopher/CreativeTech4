@@ -19,7 +19,7 @@
     
 <script>
 
-    fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239 N Westmoreland Ave%2C Los Angeles%2C CA 90029/2018-07-03T23:00:00?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
+    fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239 N Westmoreland Ave%2C Los Angeles%2C CA 90029/2018-07-03?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
         method: 'GET', 
         headers: {
        
@@ -50,8 +50,13 @@
   
   var location=response.resolvedAddress;
   var temp=response.temp;
+  var conditions=response.conditions;
+  var moonphase=response.moonphase;
+
   console.log("Location: "+location);
   console.log("Temperature: "+temp);
+  console.log("Conditions: "+conditions);
+  console.log("Moonphase: "+moonphase);
     
   }
 
