@@ -51,8 +51,8 @@
   var location=response.resolvedAddress;
   var dateTime=response.days[0].datetime;
   var temperature=response.days[0].temp;
-  var weatherConditions=response.conditions;
-  var moonPhase=response.moonphase;
+  var weatherConditions=response.days[0].conditions;
+  var moonPhase=response.days[0].moonphase;
 
   console.log("Location: "+location);
   console.log("Date: "+dateTime);
