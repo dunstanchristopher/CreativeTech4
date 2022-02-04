@@ -11,59 +11,79 @@
             max-width: 300px;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
  
     
     <script>
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.telegram.org/" + 5122825791:AAEvwhROeKRnqx4Pn6trYVamEDI-kaLA0vc + "/sendMessage",
+  "method": "POST",
+  "headers": {
+    "Content-Type": "application/json",
+    "cache-control": "no-cache"
+  },
+  "data": JSON.stringify({
+    "chat_id": 762914393,
+    "text": Good afternoon
+  })
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+}); 
         //let triggerButton = document.getElementById("startTheProcess")
         //let weatherSection = document.getElementById("weatherSection")
         //function triggerHandler() {
         //   weatherDataHandler()
        // }
 
-        fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239%20N%20Westmoreland%20Ave%2C%20Los%20Angeles%2C%20CA%2090029/2018-07-03/2018-07-03?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
-        method: 'GET', 
-        headers: {
+    //     fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239%20N%20Westmoreland%20Ave%2C%20Los%20Angeles%2C%20CA%2090029/2018-07-03/2018-07-03?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
+    //     method: 'GET', 
+    //     headers: {
        
-        },
+    //     },
                  
-      }).then(response => {
-        if (!response.ok) {
-          throw response; //check the http response code and if isn't ok then throw the response as an error
-        }
+    //   }).then(response => {
+    //     if (!response.ok) {
+    //       throw response; //check the http response code and if isn't ok then throw the response as an error
+    //     }
                   
-        return response.json(); //parse the result as JSON
+    //     return response.json(); //parse the result as JSON
       
-      }).then(response => {
-        //response now contains parsed JSON ready for use
-        processWeatherData(response);
+    //   }).then(response => {
+    //     //response now contains parsed JSON ready for use
+    //     processWeatherData(response);
       
-      }).catch((errorResponse) => {
-        if (errorResponse.text) { //additional error information
-          errorResponse.text().then( errorMessage => {
-            //errorMessage now returns the response body which includes the full error message
-          })
-        } else {
-          //no additional error information 
-        } 
-      });
+    //   }).catch((errorResponse) => {
+    //     if (errorResponse.text) { //additional error information
+    //       errorResponse.text().then( errorMessage => {
+    //         //errorMessage now returns the response body which includes the full error message
+    //       })
+    //     } else {
+    //       //no additional error information 
+    //     } 
+    //   });
 
-      function processWeatherData(response) {
+    //   function processWeatherData(response) {
   
-        var location=response.resolvedAddress;
-        var dateTime=response.days[0].datetime;
-        var temperature=response.days[0].temp;
-        var weatherConditions=response.days[0].conditions;
-        var moonPhase=response.days[0].moonphase;
+    //     var location=response.resolvedAddress;
+    //     var dateTime=response.days[0].datetime;
+    //     var temperature=response.days[0].temp;
+    //     var weatherConditions=response.days[0].conditions;
+    //     var moonPhase=response.days[0].moonphase;
 
-        console.log("Location: "+location);
-        console.log("Date: "+dateTime);
-        console.log("Temperature: "+temperature);
-        console.log("Conditions: "+weatherConditions);
-        console.log("Moonphase: "+moonPhase);
-       }
+    //     console.log("Location: "+location);
+    //     console.log("Date: "+dateTime);
+    //     console.log("Temperature: "+temperature);
+    //     console.log("Conditions: "+weatherConditions);
+    //     console.log("Moonphase: "+moonPhase);
+    //    }
      
     //   function displayWeather (data) {
     //       const weather = data.days[0];
