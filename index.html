@@ -49,8 +49,8 @@
       function processWeatherData(response) {
   
   var location=response.resolvedAddress;
-  var dateTime=response.datetime;
-  var temperature=response.temp;
+  var dateTime=response.days[0].datetime;
+  var temperature=response.days[0].temp;
   var weatherConditions=response.conditions;
   var moonPhase=response.moonphase;
 
