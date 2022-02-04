@@ -50,29 +50,29 @@
         } 
       });
 
-    //   function processWeatherData(response) {
+      function processWeatherData(response) {
   
-    //     var location=response.resolvedAddress;
-    //     var dateTime=response.days[0].datetime;
-    //     var temperature=response.days[0].temp;
-    //     var weatherConditions=response.days[0].conditions;
-    //     var moonPhase=response.days[0].moonphase;
+        var location=response.resolvedAddress;
+        var dateTime=response.days[0].datetime;
+        var temperature=response.days[0].temp;
+        var weatherConditions=response.days[0].conditions;
+        var moonPhase=response.days[0].moonphase;
 
-    //     console.log("Location: "+location);
-    //     console.log("Date: "+dateTime);
-    //     console.log("Temperature: "+temperature);
-    //     console.log("Conditions: "+weatherConditions);
-    //     console.log("Moonphase: "+moonPhase);
-    //    }
+        console.log("Location: "+location);
+        console.log("Date: "+dateTime);
+        console.log("Temperature: "+temperature);
+        console.log("Conditions: "+weatherConditions);
+        console.log("Moonphase: "+moonPhase);
+       }
      
-      function displayWeather (data) {
-          const weather = data.days[0];
-          const weatherDiv = document.getElementById("weather");
-          const temperature = temp;
-          const heading = document.createElement("h1");
-          heading.innerHTML = temperature;
-          weatherDiv.appendChild(heading);
-      }
+    //   function displayWeather (data) {
+    //       const weather = data.days[0];
+    //       const weatherDiv = document.getElementById("weather");
+    //       const temperature = temp;
+    //       const heading = document.createElement("h1");
+    //       heading.innerHTML = temperature;
+    //       weatherDiv.appendChild(heading);
+    //   }
     // function weatherDataHandler(weatherData){
     //         while (weatherSection.firstChild) {
     //             weatherSection.removeChild(weatherSection.firstChild)
