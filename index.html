@@ -19,7 +19,7 @@
     
 <script>
 
-    fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/New%20York%20City%2CNY?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
+    fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239 N Westmoreland Ave%2C Los Angeles%2C CA 90029/2018-07-03T23:00:00?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
         method: 'GET', 
         headers: {
        
@@ -49,12 +49,12 @@
       function processWeatherData(response) {
   
   var location=response.resolvedAddress;
-  var days=response.days;
+  var temp=response.temp;
   console.log("Location: "+location);
-  for (var i=0;i<days.length;i++) {
-    console.log(days[i].datetime+": tempmax="+days[i].tempmax+", tempmin="+days[i].tempmin);
+  console.log("Temperature: "+temp);
+    
   }
-}
+
     
 </script>
 
