@@ -69,8 +69,12 @@
       }
      
       function displayWeather (data) {
-          const location = data.resolvedAddress;
-          const loactionDiv = document.getElementById("location");
+          const weather = data.days[0];
+          const weatherDiv = document.getElementById("weather");
+          const temperature = temp;
+          const heading = document.createElement("h1");
+          heading.innerHTML = temperature;
+          coctailDiv.appendChile(heading);
       }
     // function weatherDataHandler(weatherData){
     //         while (weatherSection.firstChild) {
