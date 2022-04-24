@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data fetching machine!</title>
+    <title>The Night We Met</title>
     <style>
         img {
             max-width: 300px;
@@ -15,20 +15,21 @@
 
 <body>
     <button id="startTheProcess">START!</button>
+    <section id="weatherSection"></section>
     <section id="cocktailSection"></section>
     <section id="pictureSection"></section>
-    <section id="weatherSection"></section>
+    
 
     <script>
         // references
         let triggerButton = document.getElementById("startTheProcess")
-        let randomCocktailURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-        let cocktailSection = document.getElementById("cocktailSection")
-        let pictureSection = document.getElementById("pictureSection")
+        //let randomCocktailURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+       // let cocktailSection = document.getElementById("cocktailSection")
+        //let pictureSection = document.getElementById("pictureSection")
         let weatherSection = document.getElementById("weatherSection")
         let dateSection = document.getElementById("dateSection")
 
-        let fetchDate = randomDate(new Date(1995, 6, 20), new Date())
+        let fetchDate = specificDate(2018, 7, 3)
 
 
         let nasaAPoDBaseURL = "https://api.nasa.gov/planetary/apod?"
@@ -50,7 +51,7 @@
 
 
         function triggerHandler() {
-            generateNewDate()
+            fetchDate()
             fetchRandomCocktail()
         }
         
@@ -202,7 +203,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>On July 3, 2018, 11 pm</title>
+    <title></title>
     <style>
         img {
             max-width: 300px;
