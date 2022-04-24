@@ -15,8 +15,9 @@
 
 <body>
     <h1 style="font-size:300%;">I tried, but I ran out of time to make something work.</h1>
-<script>
-    fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Los%20Angeles%2C%20CA?unitGroup=metric&include=current&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
+    <div id="weather"></div>
+    <script src="script.js">
+    fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Los%20Angeles%2C%20Ca/2022-04-24/2022-04-24?unitGroup=us&include=current&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
   method: 'GET', 
   headers: {
  
@@ -43,7 +44,7 @@
   } 
 });
 
-function processWeatherData(response) {
+function displayWeather(data) {
   
   var location=response.resolvedAddress;
   var days=response.days;
@@ -52,6 +53,7 @@ function processWeatherData(response) {
     console.log(days[i].datetime+": tempmax="+days[i].tempmax+", tempmin="+days[i].tempmin);
   }
 }
+
 </script>   
 </body>
 
