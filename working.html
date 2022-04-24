@@ -22,17 +22,17 @@
     <script>
         // references
         let triggerButton = document.getElementById("startTheProcess")
-        let randomCocktailURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+        let theCocktailURL = "www.thecocktaildb.com/api/json/v1/1/search.php?s=old-fashioned"
         let cocktailSection = document.getElementById("cocktailSection")
         let pictureSection = document.getElementById("pictureSection")
         let weatherSection = document.getElementById("weatherSection")
         let dateSection = document.getElementById("dateSection")
 
-        let fetchDate = randomDate(new Date(1995, 6, 20), new Date())
+        let fetchDate = date(2018, 7, 3)
 
 
         let nasaAPoDBaseURL = "https://api.nasa.gov/planetary/apod?"
-        let nasaAPIkey = "&api_key=DEMO_KEY"
+        let nasaAPIkey = "&api_key=GmZzYJFhmiLsF2zHF5b5hOjFEZc72GxZuWOf1mEX"
         let nasaAPIdate = "&date=" + fetchDate
         
 
@@ -44,19 +44,19 @@
         let unit = "&unitGroup=uk"
         let format = "&contentType=json"
         let weatherLocation = "&location=LosAngeles,CA,US"
-        let apiKey = "&key=F5S85MYAKSL47W6LW5J6FBAKL"
+        let apiKey = "&key=QSJBBL93JZBEQJKW9RSTJG2KF"
 
         // functions
 
 
         function triggerHandler() {
-            generateNewDate()
-            fetchRandomCocktail()
+            generateDate()
+            fetchtheCocktail()
         }
         
         // fetchers
-        function fetchRandomCocktail() {
-            fetch(randomCocktailURL)
+        function theCocktail() {
+            fetch(theCocktailURL)
                 .then((response) => {
                     return response.json()
                 })
@@ -169,20 +169,9 @@
         }
 
         //helper functions
-        function randomDate(start, end) {
-            var d = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())),
-                month = '' + (d.getMonth() + 1),
-                day = '' + d.getDate(),
-                year = d.getFullYear();
-
-            if (month.length < 2) month = '0' + month;
-            if (day.length < 2) day = '0' + day;
-
-            return [year, month, day].join('-');
-        }
 
         function generateNewDate(){
-            fetchDate = randomDate(new Date(1995, 6, 20), new Date())
+            fetchDate = Date(2018, 7, 3)
             //for the nasa picture
             nasaAPIdate = "&date=" + fetchDate
             //for the weather
