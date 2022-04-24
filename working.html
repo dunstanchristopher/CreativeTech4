@@ -28,7 +28,7 @@
         let weatherSection = document.getElementById("weatherSection")
         let dateSection = document.getElementById("dateSection")
 
-        let fetchDate = date(2018, 7, 3)
+        let fetchDate = date(2018-07-03)
 
 
         let nasaAPoDBaseURL = "https://api.nasa.gov/planetary/apod?"
@@ -171,7 +171,7 @@
         //helper functions
 
         function generateNewDate(){
-            fetchDate = Date(2018, 7, 3)
+            fetchDate = Date(2018-07-03)
             //for the nasa picture
             nasaAPIdate = "&date=" + fetchDate
             //for the weather
