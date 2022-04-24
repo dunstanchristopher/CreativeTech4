@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Random Cocktail Recipe</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="cocktail"></div>
+    <div id="overlay"></div>
+    <script src="script.js">
+        fetch("fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239%20N%20Westmoreland%20Ave%2C%20Los%20Angeles%2C%20CA%2090029/2018-07-03/2018-07-03?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json")
+  .then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("NETWORK RESPONSE ERROR");
+    }
+  })
+  .then(data => {
+    console.log(data);
+    displayWeather(data)
+  })
+  .catch((error) => console.error("FETCH ERROR:", error));
+
+  {/* function processWeatherData(response) {
+  
+        var location=response.resolvedAddress;
+        var dateTime=response.days[0].datetime;
+        var temperature=response.days[0].temp;
+        var weatherConditions=response.days[0].conditions;
+        var moonPhase=response.days[0].moonphase;
+
+        console.log("Location: "+location);
+        console.log("Date: "+dateTime);
+        console.log("Temperature: "+temperature);
+        console.log("Conditions: "+weatherConditions);
+        console.log("Moonphase: "+moonPhase);
+
+        const locHeader = document.createElement('h3')
+        locHeader.innerText = "Location"
+        weatherSection.appendChild(locHeader)
+        
+        const loc = document.createElement('address')
+        loc.innerText = location
+        weatherSection.appendChild(loc)
+
+       }     */}
+    </script>
+  </body>
+</html>
