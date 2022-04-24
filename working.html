@@ -53,7 +53,12 @@ function processWeatherData(response) {
     console.log(days[i].datetime+": tempmax="+days[i].tempmax+", tempmin="+days[i].tempmin);
   }
 }
+function displayWeather(data) {
+  const location = location;
+  const heading = document.createElement("h1");
+  heading.innerHTML = location;
 
+}   
 
 </script>   
 </body>
