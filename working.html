@@ -53,12 +53,17 @@ function processWeatherData(response) {
     console.log(days[i].datetime+": tempmax="+days[i].tempmax+", tempmin="+days[i].tempmin);
   }
 }
-function displayWeather(data) {
-  const location = location;
-  const heading = document.createElement("h1");
-  heading.innerHTML = location;
-
-}   
+(function () {
+    var old = console.log;
+    var logger = document.getElementById('log');
+    console.log = function (message) {
+        if (typeof message == 'object') {
+            logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br />';
+        } else {
+            logger.innerHTML += message + '<br />';
+        }
+    }
+})();
 
 </script>   
 </body>
