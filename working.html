@@ -42,6 +42,16 @@
     //no additional error information 
   } 
 });
+
+function processWeatherData(response) {
+  
+  var location=response.resolvedAddress;
+  var days=response.days;
+  console.log("Location: "+location);
+  for (var i=0;i<days.length;i++) {
+    console.log(days[i].datetime+": tempmax="+days[i].tempmax+", tempmin="+days[i].tempmin);
+  }
+}
 </script>   
 </body>
 
