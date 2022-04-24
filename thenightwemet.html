@@ -18,26 +18,23 @@
     <div id="weatherDiv"></div>
  
 <script>
-//let triggerButton = document.getElementById("startTheProcess")
-        //let weatherSection = document.getElementById("weatherSection")
-        //function triggerHandler() {
-        //   weatherDataHandler()
-       // }
+let triggerButton = document.getElementById("startTheProcess")
+let weatherSection = document.getElementById("weatherSection")
+function triggerHandler() {
+weatherDataHandler()
+}
 
-    const weatherSection = document.getElementById('weatherDiv')
-
-    fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239%20N%20Westmoreland%20Ave%2C%20Los%20Angeles%2C%20CA%2090029/2018-07-03/2018-07-03?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json")
-    .then(response => {
-        if (!response.ok) {
-          throw response; //check the http response code and if isn't ok then throw the response as an error
-        }
-                  
-        return response.json(); //parse the result as JSON
-      
-      })
-    .then(response => {
-        //response now contains parsed JSON ready for use
-        processWeatherData(response);
+const weatherSection = document.getElementById('weatherDiv')
+fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/1239%20N%20Westmoreland%20Ave%2C%20Los%20Angeles%2C%20CA%2090029/2018-07-03/2018-07-03?unitGroup=us&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json")
+.then(response => {
+if (!response.ok) {
+throw response; //check the http response code and if isn't ok then throw the response as an error
+}
+return response.json(); //parse the result as JSON
+})
+.then(response => {
+//response now contains parsed JSON ready for use
+processWeatherData(response);
       
       }).catch((errorResponse) => {
         if (errorResponse.text) { //additional error information
