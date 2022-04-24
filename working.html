@@ -15,7 +15,7 @@
 
 <body>
     <h1 style="font-size:300%;">I tried, but I ran out of time to make something work.</h1>
-    <section id="weatherSection"></section>
+    <div id="weather"></div>
     <script>
     fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Los%20Angeles%2C%20Ca/2022-04-24/2022-04-24?unitGroup=us&include=current&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
   method: 'GET', 
@@ -53,13 +53,13 @@ function processWeatherData(response) {
     console.log(days[i].datetime+": tempmax="+days[i].tempmax+", tempmin="+days[i].tempmin);
   }
 }
-function weatherDataHandler(weatherData){
-            while (weatherSection.firstChild) {
-                weatherSection.removeChild(weatherSection.firstChild)
-            }
-            let nameContainer = document.createElement('h3')
-            nameContainer.innerText = "The weather today in" + location
-            weatherSection.appendChild(nameContainer)
+function displayWeather(data){
+            const weatherDiv = document.getElementById("weather");
+            const Location = location;
+            const highTemp = tempmax;
+            const lowTemp = tempmin;
+            heading.innerHTML = Location;
+
 
         }
 
