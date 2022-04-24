@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data fetching machine!</title>
+    <style>
+        img {
+            max-width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="font-size:300%;">I tried, but I ran out of time to make something work.</h1>
+    <div id="weather"></div>
+    <script>
+    fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Los%20Angeles%2C%20Ca/2022-04-24/2022-04-24?unitGroup=us&include=current&key=QSJBBL93JZBEQJKW9RSTJG2KF&contentType=json", {
+  method: 'GET', 
+  headers: {
+ 
+  },
+           
+}).then(response => {
+  if (!response.ok) {
+    throw response; //check the http response code and if isn't ok then throw the response as an error
+  }
+            
+  return response.json(); //parse the result as JSON
+
+}).then(response => {
+  //response now contains parsed JSON ready for use
+  processWeatherData(response);
+
+}).catch((errorResponse) => {
+  if (errorResponse.text) { //additional error information
+    errorResponse.text().then( errorMessage => {
+      //errorMessage now returns the response body which includes the full error message
+    })
+  } else {
+    //no additional error information 
+  } 
+});
+
+function processWeatherData(response) {
+  
+  var location=response.resolvedAddress;
+  var days=response.days;
+  console.log("Location: "+location);
+  for (var i=0;i<days.length;i++) {
+    console.log(days[i].datetime+": tempmax="+days[i].tempmax+", tempmin="+days[i].tempmin);
+  }
+}
+function displayWeather(data){
+    heading.innerHTML = location;
+            
+
+
+        }
+
+
+</script>   
+</body>
+
+</html>
